@@ -1,5 +1,7 @@
-export let ancient;
+import {ancientsData} from './ancientsData.js';
+import {resetDeckContainer} from './random.js';
 
+export let ancient;
 
 export function choiceAncient (e) {
   const ancientsCard = document.querySelectorAll('.ancient-card');
@@ -8,6 +10,8 @@ export function choiceAncient (e) {
     ancientsCard[i].classList.remove('active');
   });
   ancient.classList.add('active');
+  resetDeckContainer()
+  ancientsData();
 }
 
 

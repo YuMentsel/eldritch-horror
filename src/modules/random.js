@@ -4,7 +4,6 @@ import {
   greenCards,
 } from '../data/mythicCards/index.js';
 import { getNextCard, dotsNumReset } from './flipCards';
-import { shuffleDeck } from './shuffle.js';
 const stageText = document.querySelectorAll('.stage-text');
 
 
@@ -115,5 +114,6 @@ export {
   randomBrownCards,
   randomBlueCards,
   randomGreenCards,
-  choiceDifficulty
+  choiceDifficulty,
+  resetDeckContainer
 };

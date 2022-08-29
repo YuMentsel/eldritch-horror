@@ -1,11 +1,10 @@
-import ancientsDotsStart from '../data/ancients.js';
+import {ancientsDotsStart, ancientsData} from './ancientsData.js';
 import {
   stageAllAzathoth,
   stageOneAzathoth,
   stageTwoAzathoth,
   stageThreeAzathoth,
 } from './shuffle.js';
-
 
 const lastCard = document.querySelector('.last-card');
 const deck = document.querySelector('.deck');
@@ -20,12 +19,14 @@ let count = 0;
 let ancientsDots = [...ancientsDotsStart];
 
 export function dotsNum() {
+  ancientsData();
   dots.forEach((el, i) => {
     el.textContent = ancientsDots[i];
   });
 }
 
 export function dotsNumReset() {
+  ancientsData();
   ancientsDots = [...ancientsDotsStart];
   count = 0;
 }
@@ -47,19 +48,15 @@ export function getNextCard() {
     let nextCard = stageAllAzathoth.pop();
     lastCard.style.backgroundImage = `url(${nextCard.cardFace})`;
     count++;
-    if (count == stageThreeAzathoth.length - 2) stageOne.classList.add('done');
-    if (count == stageThreeAzathoth.length + stageTwoAzathoth.length - 2)
-      stageTwo.classList.add('done');
+    if (count == stageOneAzathoth.length) stageOne.classList.add('done');
+    if (count == stageOneAzathoth.length + stageTwoAzathoth.length) stageTwo.classList.add('done');
 
-    if (count < stageAllAzathoth.length - stageThreeAzathoth.length) {
+    if (count <= stageOneAzathoth.length) {
       if (nextCard.color == 'green') ancientsDots[0]--;
       else if (nextCard.color == 'brown') ancientsDots[1]--;
       else if (nextCard.color == 'blue') ancientsDots[2]--;
       dotsNum();
-    } else if (
-      count <
-      stageThreeAzathoth.length + stageTwoAzathoth.length - 1
-    ) {
+    } else if (count <= stageOneAzathoth.length + stageTwoAzathoth.length) {
       if (nextCard.color == 'green') ancientsDots[3]--;
       else if (nextCard.color == 'brown') ancientsDots[4]--;
       else if (nextCard.color == 'blue') ancientsDots[5]--;
