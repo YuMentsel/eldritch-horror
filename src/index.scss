@@ -1,0 +1,172 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/montserrat-v23-latin_cyrillic-regular.woff2') format('woff2'),
+    url('fonts/montserrat-v23-latin_cyrillic-regular.woff') format('woff');
+}
+
+body {
+  font-family: 'Montserrat';
+  color: #fff;
+  background: url(./assets/home.png) center top / cover no-repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 90vh;
+}
+
+.ancients-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 550px;
+  margin: 0;
+  padding: 0;
+  .ancient-card {
+    list-style-type: none;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 350px;
+    width: 270px;
+    border-radius: 15px;
+    transition: 0.4s;
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+  
+  .ancient-card.active {
+    border: 2px solid red;
+    transform: scale(1.4);
+  }
+}
+
+.difficulty-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  .difficulty {
+    list-style-type: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px 7px;
+    text-align: center;
+    transition: 0.4s;
+    &:hover {
+      color: rgb(255, 165, 138);
+      border: 2px solid rgb(255, 165, 138);
+    }
+  }
+  .difficulty.active {
+    color: red;
+    border: 2px solid red;
+  }
+}
+
+.deck-container,
+.play-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  justify-content: center;
+  min-width: 30%;
+}
+
+.deck-container {
+  .shuffle-button {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+    transition: 1s;
+    &:hover {
+      border: 2px solid red;
+      color: red;
+    }
+  }
+  .current-state {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 30%;
+    .stage-container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .stage-text {
+        color: #fff;
+        transition: 0.4s;
+      }
+      .stage-text.done {
+        color: red;
+      }
+      .dots-container {
+        align-items: center;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        .dot {
+          align-items: center;
+          border-radius: 30%;
+          display: flex;
+          height: 40px;
+          justify-content: center;
+          width: 40px;
+          border: 2px solid #fff;
+          color: #fff;
+          font-size: 26px;
+          transition: 0.4s;
+        }
+        .dot.green {
+          background-color: rgb(7, 85, 7);
+        }
+        .dot.brown {
+          background-color: rgb(126, 93, 21);
+        }
+        .dot.blue {
+          background-color: rgb(12, 70, 179);
+        }
+      }
+    }
+  }
+  .cards-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    .deck {
+      background: url(./assets/mythicCardBackground.png);
+      cursor: pointer;
+    }
+    .deck,
+    .last-card {
+      background-size: cover;
+      border-radius: 10px;
+      height: 294px;
+      width: 200px;
+      transition: 0.4s;
+    }
+  }
+}
+
+.none {
+  display: none;
+}
