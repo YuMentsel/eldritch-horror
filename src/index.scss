@@ -21,6 +21,7 @@ body {
 }
 
 .ancients-container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -29,9 +30,8 @@ body {
   padding: 0;
   .ancient-card {
     list-style-type: none;
-    background-position: 50%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     box-sizing: border-box;
     cursor: pointer;
     height: 350px;
@@ -153,7 +153,6 @@ body {
     justify-content: center;
     align-items: center;
     .deck {
-      background: url(./assets/mythicCardBackground.png);
       cursor: pointer;
     }
     .deck,

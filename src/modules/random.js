@@ -5,6 +5,7 @@ import {
 } from '../data/mythicCards/index.js';
 import { getNextCard, dotsNumReset } from './flipCards';
 import { shuffleDeck } from './shuffle.js';
+const stageText = document.querySelectorAll('.stage-text');
 
 
 // Первичный рандом
@@ -86,12 +87,13 @@ const deck = document.querySelector('.deck');
 function resetDeckContainer() {
   shuffleButton.classList.remove('none');
   playContainer.classList.add('none');
-  deck.style.backgroundImage = 'url(../assets/mythicCardBackground.png)';
   lastCard.style.backgroundImage = 'none';
   deck.style.cursor = 'pointer';
   deck.addEventListener('click', getNextCard);
   dotsNumReset();
-
+  stageText.forEach((el, i) => {
+    stageText[i].classList.remove('done');
+  });
 }
 
 ///////////////////////////////////////////////////////

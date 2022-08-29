@@ -6,6 +6,7 @@ import {
   stageThreeAzathoth,
 } from './shuffle.js';
 
+
 const lastCard = document.querySelector('.last-card');
 const deck = document.querySelector('.deck');
 const stageOne = document.querySelector('.one');
@@ -15,6 +16,7 @@ const dots = document.querySelectorAll('.dot');
 let count = 0;
 
 // Номерация кружков
+
 let ancientsDots = [...ancientsDotsStart];
 
 export function dotsNum() {
