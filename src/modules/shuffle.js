@@ -16,7 +16,8 @@ export let stageAllAzathoth;
 const ancientCard = document.querySelectorAll('.ancient-card');
 
 export function checkAncient() {
-  let anc;ancientCard.forEach((el, i) => {
+  let anc;
+  ancientCard.forEach((el, i) => {
     if (ancientCard[i].classList.contains('active')) { 
       anc = ancientCard[i];
     }

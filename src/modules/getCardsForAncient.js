@@ -7,9 +7,20 @@ let randomBlueCardsSet,
     randomGreenCardsSet;
 
 function getCardsAll(g, br, bl) {
-  randomGreenCardsSet = randomGreenCards.slice(0, g);
-  randomBrownCardsSet = randomBrownCards.slice(0, br);
-  randomBlueCardsSet = randomBlueCards.slice(0, bl);
+  let randomGreenCardsS = randomGreenCards.slice(0, g);
+  let randomBrownCardsS = randomBrownCards.slice(0, br);
+  let randomBlueCardsS = randomBlueCards.slice(0, bl);
+  randomBrownCardsSet = shuffleBr(randomBrownCardsS);
+  randomGreenCardsSet = shuffleBr(randomGreenCardsS);
+  randomBlueCardsSet = shuffleBr(randomBlueCardsS);
+}
+
+function shuffleBr(cards) {
+  for (let i = cards.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  return cards;
 }
 
 function getCards(g, br, bl) {
